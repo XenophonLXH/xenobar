@@ -1,0 +1,8 @@
+; Main Window
+(defwindow xenobar 
+  :windowtype "dock" 
+  :wm-ignore false 
+  :geometry (geometry 
+                :anchor "top center") 
+  :reserve (struts :side "top" :distance "10%")
+    "I still work")
