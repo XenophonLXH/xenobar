@@ -1,3 +1,27 @@
+; Reusable Widgets
+(defwidget sep []
+  (box
+    :hexpand false
+    (label
+      :class "sep"
+      :text "||"
+    )
+  )
+)
+
+; Polls
+(defpoll today                                ; Today (date)
+  :interval "1h"
+  :initial "N/A"
+  "date +'%a %d %b %Y'"
+)
+
+(defpoll time
+  :interval "5s"
+  :initial "N/A"
+  "date +'%H:%M'"
+)
+
 ; Main Window
 (defwindow xenobar 
   :windowtype "dock" 
@@ -5,4 +29,51 @@
   :geometry (geometry 
                 :anchor "top center") 
   :reserve (struts :side "top" :distance "10%")
-    "I still work")
+  (bar)
+)
+
+
+; Bar: Main Bar
+(defwidget bar []
+  (centerbox
+    :class "bar-main"
+    :orientation "horizontal"
+    :hexpand false
+    :space-evenly true
+    ; (workspace)
+    (workspace)
+    (date)
+    (info)
+  )
+)
+
+; Widget: Workspaces (Left)
+(defwidget workspace []
+  (box
+    :halign "start"
+    "workspace"
+  )
+)
+
+; Widget: Date (center)
+(defwidget date []
+  (box
+    :halign "center"
+    :space-evenly false
+    (label
+      :text "${today}"
+    )
+    (sep)
+    (label
+      :text "${time}"
+    )
+  )
+)
+
+; Widget: Info
+(defwidget info []
+  (box
+    :halign "end"
+    "apps"
+  )
+)
