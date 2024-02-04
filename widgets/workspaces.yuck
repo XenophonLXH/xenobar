@@ -1,0 +1,166 @@
+; Workspace: active
+(deflisten active-workspace
+  :initial "N/A"
+  `xprop -spy -root _NET_CURRENT_DESKTOP | cut -d ' ' -f3`
+)
+
+; Workspace Name: active
+
+(defwidget workspaces []
+    (box
+    :orientation "h"
+    :space-evenly true
+    :halign "start"
+    :class "workspaces"
+    ; workspace 1
+      (box
+        :class "workspace-el"
+        :orientation "h"
+        :spacing 5
+        :space-evenly false
+        (button
+          :onclick "i3-msg workspace 1"
+          :class "workspace-btn"
+          :spacing 5
+          (label
+            :text "1"
+          )
+        )
+      )
+    ; workspace 2
+      (box
+        :class "workspace-el"
+        :orientation "h"
+        :spacing 5
+        :space-evenly false
+        (button
+          :onclick "i3-msg workspace 2"
+          :class "workspace-btn"
+          :spacing 5
+          (label
+            :text "2"
+          )
+        )
+      )
+    ; workspace 3
+      (box
+        :class "workspace-el"
+        :orientation "h"
+        :spacing 5
+        :space-evenly false
+        (button
+          :onclick "i3-msg workspace 3"
+          :class "workspace-btn"
+          :spacing 5
+          (label
+            :text "3"
+          )
+        )
+      )
+    ; workspace 4
+      (box
+        :class "workspace-el"
+        :orientation "h"
+        :spacing 5
+        :space-evenly false
+        (button
+          :onclick "i3-msg workspace 4"
+          :class "workspace-btn"
+          :spacing 5
+          (label
+            :text "4"
+          )
+        )
+      )
+    ; workspace 5
+      (box
+        :class "workspace-el"
+        :orientation "h"
+        :spacing 5
+        :space-evenly false
+        (button
+          :onclick "i3-msg workspace 5"
+          :class "workspace-btn"
+          :spacing 5
+          (label
+            :text "5"
+          )
+        )
+      )
+    ; workspace 6
+      (box
+        :class "workspace-el"
+        :orientation "h"
+        :spacing 5
+        :space-evenly false
+        (button
+          :onclick "i3-msg workspace 6"
+          :class "workspace-btn"
+          :spacing 5
+          (label
+            :text "6"
+          )
+        )
+      )
+    ; workspace 7
+      (box
+        :class "workspace-el"
+        :orientation "h"
+        :spacing 5
+        :space-evenly false
+        (button
+          :onclick "i3-msg workspace 7"
+          :class "workspace-btn"
+          :spacing 5
+          (label
+            :text "7"
+          )
+        )
+      )
+    ; workspace 8
+      (box
+        :class "workspace-el"
+        :orientation "h"
+        :spacing 5
+        :space-evenly false
+        (button
+          :onclick "i3-msg workspace 8"
+          :class "workspace-btn"
+          :spacing 5
+          (label
+            :text "8"
+          )
+        )
+      )
+    ; workspace 9
+      (box
+        :class "workspace-el"
+        :orientation "h"
+        :spacing 5
+        :space-evenly false
+        (button
+          :onclick "i3-msg workspace 9"
+          :class "workspace-btn"
+          :spacing 5
+          (label
+            :text "9"
+          )
+        )
+      )
+    ; workspace 10
+      (box
+        :class "workspace-el"
+        :orientation "h"
+        :spacing 5
+        :space-evenly false
+        (button
+          :onclick "i3-msg workspace 10"
+          :class "workspace-btn"
+          :spacing 5
+          (label
+            :text "10"
+          )
+        )
+      )
+    )
+)

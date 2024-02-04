@@ -1,44 +1,40 @@
 * {
-	all: unset; //Unsets everything so you can style everything from scratch
+    all: unset; //Unsets everything so you can style everything from scratch
 }
 
-//Global Styles
-.bar-main {
-	color: #b0b4bc;
-    background-color: rgba(14, 21, 40, 0.7);
-	margin: 0px 0px;
-	padding: 5px 10px;
-	margin-bottom: 0px;
-	padding-bottom: 0px;
+$bg: #0d1417;
+$lightbg: #232a2d;
+$white: #dadada;
+$red: #e57474;
+$gray: #b3b9b8;
+$green: #8ccf7e;
+
+.bar {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: feather;
+    font-family: Iosevka Nerd Font;
+    border-radius: 16px;
+    background-color: $bg;
+    padding: 5px;
+    margin: 2px 20px;
 }
 
-.bar-section {
-	background-color: rgba(200, 200, 200, 0.5);
-	border-radius: 15;
+.workspaces {
+    margin-left: 10px;
 }
 
-.sep {
-	color: rgba(200, 200, 200, 0.5);
+.workspace-btn {
+    background-color: $gray;
+    color: black;
+    margin: 2px;
+    padding: 2px 10px;
+    border-radius: 100px
 }
 
-.time {
-	font-weight: bold;
-	padding-right: 20px;
-}
-
-.alert {
-	color: #aa5555;
-	padding: 5px;
-}
-
-.regular {
-	color: #b0b4bc;
-	padding: 5px;
-}
-
-.active-workspace {
-	background-color: rgba(150, 150, 150, 0.4);
-	border-radius: 10;
-	padding-left: 10px;
-	padding-right: 10px;
+.workspace-btn-active {
+    background-color: $green;
+    color: black;
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 100px
 }
