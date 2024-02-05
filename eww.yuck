@@ -1,3 +1,10 @@
+; Listeners
+(deflisten current-workspace
+  :initial 0
+  ; `xprop -spy -root _NET_CURRENT_DESKTOP | cut -d ' ' -f3`
+  `xprop -spy -root _NET_CURRENT_DESKTOP`
+)
+
 ; IMPORTS
 (include "./widgets/date.yuck")
 (include "./widgets/workspaces.yuck")
@@ -14,7 +21,6 @@
   :windowtype "dock"
 (bar))
 
-
 ; BAR
 (defwidget bar []
   (box :class "bar"
@@ -25,20 +31,22 @@
   )
 )
 
+; Workspaces
 (defwidget left []
   (box
     :class "left"
     :orientation "h"
     :space-evenly false
-    (workspaces)
+    (workspaces :current-ws 2)
   )
 )
 
+; Date
 (defwidget center []
   (box
     :orientation "h"
     :space-evenly false
-    :halign "end"
+    :halign "center"
     :class "center"
     (date)
   )

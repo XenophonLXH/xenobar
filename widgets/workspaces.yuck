@@ -5,8 +5,7 @@
 )
 
 ; Workspace Name: active
-
-(defwidget workspaces []
+(defwidget workspaces [current-ws]
     (box
     :orientation "h"
     :space-evenly true
@@ -20,7 +19,7 @@
         :space-evenly false
         (button
           :onclick "i3-msg workspace 1"
-          :class "workspace-btn"
+          :class {current-ws == "0" ? "workspace-btn-active" : "workspace-btn"}
           :spacing 5
           (label
             :text "1"
@@ -35,7 +34,7 @@
         :space-evenly false
         (button
           :onclick "i3-msg workspace 2"
-          :class "workspace-btn"
+          :class {current-ws == "1" ? "workspace-btn-active" : "workspace-btn"}
           :spacing 5
           (label
             :text "2"
@@ -50,7 +49,7 @@
         :space-evenly false
         (button
           :onclick "i3-msg workspace 3"
-          :class "workspace-btn"
+          :class {current-ws == "2" ? "workspace-btn-active" : "workspace-btn"}
           :spacing 5
           (label
             :text "3"
@@ -65,7 +64,7 @@
         :space-evenly false
         (button
           :onclick "i3-msg workspace 4"
-          :class "workspace-btn"
+          :class {current-ws == "3" ? "workspace-btn-active" : "workspace-btn"}
           :spacing 5
           (label
             :text "4"
@@ -80,7 +79,7 @@
         :space-evenly false
         (button
           :onclick "i3-msg workspace 5"
-          :class "workspace-btn"
+          :class {current-ws == "4" ? "workspace-btn-active" : "workspace-btn"}
           :spacing 5
           (label
             :text "5"
@@ -95,7 +94,7 @@
         :space-evenly false
         (button
           :onclick "i3-msg workspace 6"
-          :class "workspace-btn"
+          :class {current-ws == "5" ? "workspace-btn-active" : "workspace-btn"}
           :spacing 5
           (label
             :text "6"
@@ -110,7 +109,7 @@
         :space-evenly false
         (button
           :onclick "i3-msg workspace 7"
-          :class "workspace-btn"
+          :class {current-ws == "6" ? "workspace-btn-active" : "workspace-btn"}
           :spacing 5
           (label
             :text "7"
@@ -125,7 +124,7 @@
         :space-evenly false
         (button
           :onclick "i3-msg workspace 8"
-          :class "workspace-btn"
+          :class {current-ws == "7" ? "workspace-btn-active" : "workspace-btn"}
           :spacing 5
           (label
             :text "8"
@@ -140,7 +139,7 @@
         :space-evenly false
         (button
           :onclick "i3-msg workspace 9"
-          :class "workspace-btn"
+          :class {current-ws == "8" ? "workspace-btn-active" : "workspace-btn"}
           :spacing 5
           (label
             :text "9"
@@ -155,7 +154,7 @@
         :space-evenly false
         (button
           :onclick "i3-msg workspace 10"
-          :class "workspace-btn"
+          :class {current-ws == "9" ? "workspace-btn-active" : "workspace-btn"}
           :spacing 5
           (label
             :text "10"
