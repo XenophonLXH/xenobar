@@ -4,10 +4,15 @@
 
 $bg: #0d1417;
 $lightbg: #232a2d;
-$white: #dadada;
+$white: #FFF;
 $red: #e57474;
 $gray: #b3b9b8;
 $green: #8ccf7e;
+$spotify: #1DB954;
+$orange: #FF9500;
+$brown-envelop: #ffae52;
+$pink: #FC0FC0;
+$blue: #256EFF;
 
 .bar {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -15,26 +20,51 @@ $green: #8ccf7e;
     font-family: Iosevka Nerd Font;
     border-radius: 16px;
     background-color: $bg;
-    padding: 5px;
+    padding: 1px;
     margin: 2px 20px;
 }
 
 .workspaces {
-    margin-left: 10px;
+    margin: 10px;
 }
 
-.workspace-btn {
-    background-color: $gray;
-    color: black;
-    margin: 2px;
-    padding: 1px 1px;
-    border-radius: 100px
-}
-
-.workspace-btn-active {
-    background-color: $green;
-    color: black;
+.inactive {
+    color: $white;
     margin: 1px;
-    padding: 1px 7px;
-    border-radius: 100px
+}
+
+.active-red {
+    color: red;
+    font-size: 30px;
+    margin: 1px 5px;
+}
+
+.active-orange {
+    color: $orange;
+    font-size: 30px;
+    margin: 1px 5px;
+}
+
+.active-brown {
+    color: $brown-envelop;
+    font-size: 30px;
+    margin: 1px 5px;
+}
+
+.active-green {
+    color: $spotify;
+    font-size: 30px;
+    margin: 1px 5px;
+}
+
+.active-pink {
+    color: $pink;
+    font-size: 30px;
+    margin: 1px 5px;
+}
+
+.active-blue {
+    color: $blue;
+    font-size: 30px;
+    margin: 1px 5px;
 }

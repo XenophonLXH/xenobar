@@ -148,31 +148,31 @@
       :spacing "12"
       :css "* {margin-left: 20px; margin-right: 20px;}"
     (box
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "1" ? "workspace-btn-active" : "workspace-btn"}
-        (label :text {names =~ `"1"` ? "" : ""}))
+        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "1" ? "active-red" : "inactive"}
+        (label :text {names =~ `"1"` ? "󰚌" : "󰯈"}))
     (box
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "2" ? "workspace-btn-active" : "workspace-btn"}
-        (label :text {names =~ `"2"` ? "" : ""}))
+        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "2" ? "active-orange" : "inactive"}
+        (label :text {names =~ `"2"` ? "󰈹" : "󰈹"}))
     (box
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "3" ? "workspace-btn-active" : "workspace-btn"}
-        (label :text {names =~ `"3"` ? "" : ""}))
+        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "3" ? "active-green" : "inactive"}
+        (label :text {names =~ `"3"` ? "󰓇" : "󰓇"}))
     (box
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "4" ? "workspace-btn-active" : "workspace-btn"}
-        (label :text {names =~ `"4"` ? "" : ""}))
+        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "4" ? "active-brown" : "inactive"}
+        (label :text {names =~ `"4"` ? "󰉋" : "󰉖"}))
     (box
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "5" ? "workspace-btn-active" : "workspace-btn"}
+        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "5" ? "active-pink" : "inactive"}
         (label :text {names =~ `"5"` ? "" : ""}))
     (box
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "6" ? "workspace-btn-active" : "workspace-btn"}
+        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "6" ? "active-blue" : "inactive"}
         (label :text {names =~ `"6"` ? "" : ""}))
     (box
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "7" ? "workspace-btn-active" : "workspace-btn"}
+        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "7" ? "active-green" : "inactive"}
         (label :text {names =~ `"7"` ? "" : ""}))
     (box
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "8" ? "workspace-btn-active" : "workspace-btn"}
+        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "8" ? "active-orange" : "inactive"}
         (label :text {names =~ `"8"` ? "" : ""}))
     (box
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "9" ? "workspace-btn-active" : "workspace-btn"}
+        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "9" ? "active-red" : "inactive"}
         (label :text {names =~ `"9"` ? "" : ""}))))
 
 
