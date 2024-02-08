@@ -2,7 +2,7 @@
     all: unset; //Unsets everything so you can style everything from scratch
 }
 
-$bg: #0d1417;
+$bg: #282828;
 $lightbg: #232a2d;
 $white: #FFF;
 $red: #e57474;
@@ -21,11 +21,11 @@ $blue: #256EFF;
     border-radius: 16px;
     background-color: $bg;
     padding: 1px;
-    margin: 2px 20px;
+    margin: 1px 20px;
 }
 
 .workspaces {
-    margin: 10px;
+    margin: 1px;
 }
 
 .inactive {
@@ -67,4 +67,23 @@ $blue: #256EFF;
     color: $blue;
     font-size: 30px;
     margin: 1px 5px;
+}
+
+.battery {
+    color: red;
+}
+
+.power {
+    color: red;
+    font-size: 25px;
+}
+
+.reboot {
+    color: $blue;
+    font-size: 20px;
+}
+
+.exit {
+    color: $orange;
+    font-size: 20px;
 }

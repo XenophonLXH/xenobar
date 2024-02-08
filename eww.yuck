@@ -114,9 +114,9 @@
 		:hexpand false
 		:space-evenly true
 		:spacing "15"
-		(box (button :onclick `i3-msg exit` "󰍃 "))
-		(box (button :onclick `reboot` " "))
-		(box (button :onclick `shutdown now` " "))))
+		(box (button :class "exit" :onclick `dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock` "󰍃 "))
+		(box (button :class "reboot" :onclick `/usr/bin/gnome-session-quit --reboot` " "))
+		(box (button :class "power" :onclick `/usr/bin/gnome-session-quit --power-off` " "))))
 
 
 ; ..:: CENTER ::..
