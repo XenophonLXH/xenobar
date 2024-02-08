@@ -1,0 +1,10 @@
+(defpoll waka :interval "300s" :initial "" "./scripts/wakatime.sh")
+
+(defwidget wakatime [waka]
+  (box
+    :class "wakatime"
+    :halign "end"
+    :spacing 25
+    (button :onclick `firefox --new-tab https://wakatime.com/dashboard` (label :text " ${waka}"))
+  )
+)

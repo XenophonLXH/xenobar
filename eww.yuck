@@ -1,3 +1,6 @@
+; Includes
+(include "./widgets/waka.yuck")
+
 (defwindow xenobar
 	:windowtype "dock"
 	:wm-ignore false
@@ -18,9 +21,7 @@
 		(info) ; <------------- the background occupies all the right side, from the time to the end of the screen
 		))
 
-
 ; ..:: RIGHT: SYSTEM INFO ::..
-
 (defwidget info []
 	(box
 		:class "side-stuff"
@@ -122,13 +123,16 @@
 ; ..:: CENTER ::..
 
 (defwidget time-date []
-	(box
-		:halign "center"
-		:space-evenly false
-		:spacing "15"
-		(label :text "${today}")
-		(sep)
-		(label :text "${time}")))
+  (box
+      :halign "center"
+      :space-evenly false
+      :spacing "15"
+      (label :text "${today}")
+      (sep)
+      (label :text "${time}")
+      (wakatime :waka waka)
+  )
+)
 
 
 ; ..:: LEFT: ::..
