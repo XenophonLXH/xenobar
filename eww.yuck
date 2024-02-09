@@ -1,42 +1,47 @@
 ; Includes
 (include "./widgets/waka.yuck")
+(include "./widgets/flameshot.yuck")
+(include "./widgets/date.yuck")
 
 (defwindow xenobar
-	:windowtype "dock"
-	:wm-ignore false
-	:geometry (geometry
-				:width "99%" ; this doesn't work... :(
-				:anchor "top center")
-	:reserve (struts :side "top" :distance "10%")
-	(bar))
+  :windowtype "dock"
+  :wm-ignore false
+  :geometry (geometry
+              :width "99%"
+              :anchor "top center")
+  :reserve (struts :side "top" :distance "10%")
+  (bar)
+)
 
 (defwidget bar []
-	(centerbox
-		:class "bar"
-		:orientation "horizontal"
-		:hexpand false
-		(workspaces :names active-workspaces :current-idx current-workspace-index)
-		(time-date)
-		; (box :class "bar-section" (info))
-		(info) ; <------------- the background occupies all the right side, from the time to the end of the screen
-		))
+  (centerbox
+    :class "bar"
+    :orientation "horizontal"
+    :hexpand false
+    (workspaces :names active-workspaces :current-idx current-workspace-index)
+    (time-date)
+    (info)
+  )
+)
 
-; ..:: RIGHT: SYSTEM INFO ::..
 (defwidget info []
-	(box
-		:class "side-stuff"
-		:halign "end"
-		:space-evenly false
-		:spacing "25"
-		(box
-			:space-evenly false
-			:spacing "10"
-			(_volume :volume volume)
-			(_backlight :brightness brightness-level)
-			(_battery :status {EWW_BATTERY.BAT0.status} :battery {EWW_BATTERY.BAT0.capacity}))
-			(_network :strength net-strength :name net-name)
-		(sep)
-		(buttons)))
+  (box
+    :class "side-stuff"
+    :halign "end"
+    :space-evenly false
+    :spacing "25"
+    (box
+        :space-evenly false
+        :spacing "10"
+        (flameshot)
+        (_volume :volume volume)
+        (_backlight :brightness brightness-level)
+        (_battery :status {EWW_BATTERY.BAT0.status} :battery {EWW_BATTERY.BAT0.capacity}))
+        (_network :strength net-strength :name net-name)
+    (sep)
+    (buttons)
+  )
+)
 
 (defvar eww "eww -c $HOME/.config/eww")
 
@@ -122,17 +127,6 @@
 
 ; ..:: CENTER ::..
 
-(defwidget time-date []
-  (box
-      :halign "center"
-      :space-evenly false
-      :spacing "15"
-      (label :text "${today}")
-      (sep)
-      (label :text "${time}")
-      (wakatime :waka waka)
-  )
-)
 
 
 ; ..:: LEFT: ::..
@@ -195,9 +189,6 @@
 ; it'd be nice if it was a deflisten...
 (defpoll volume :interval "1s" :initial "N/A" "./scripts/getvol.sh")
 
-(defpoll today :interval "1h" :initial "N/A" "date +'%a %d %b %Y'")
-
-(defpoll time :interval "5s" :initial "N/A" "date +'%H:%M'")
 
 (defpoll net-name :interval "60s" :initial "N/A" "nmcli -t -f NAME c show --active | head -n 1")
 

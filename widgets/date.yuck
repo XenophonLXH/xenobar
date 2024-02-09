@@ -1,10 +1,15 @@
-(defpoll day :interval "1h" "date '+%A, %d of %B'")
+(defpoll today :interval "1h" :initial "N/A" "date +'%a %d %b %Y'")
 
-(defwidget date []
-    (box :class "date-container"
-         :orientation "h"
-         :space-evenly true
-         :halign "center"
-      (label :text "${day}")
-    )
+(defpoll time :interval "5s" :initial "N/A" "date +'%H:%M'")
+
+(defwidget time-date []
+  (box
+      :halign "center"
+      :space-evenly false
+      :spacing "15"
+      (label :text "${today}")
+      (sep)
+      (label :text "${time}")
+      (wakatime :waka waka)
+  )
 )

@@ -1,0 +1,9 @@
+(defwidget flameshot []
+  (box
+    (button
+      :onclick `flameshot gui`
+      :class "flameshot"
+      (label :text "󰈸")
+    )
+  )
+)
