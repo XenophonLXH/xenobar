@@ -1,5 +1,6 @@
 ; Includes
 (include "./widgets/waka.yuck")
+(include "./widgets/bitbucket.yuck")
 (include "./widgets/flameshot.yuck")
 (include "./widgets/date.yuck")
 
@@ -33,6 +34,7 @@
     (box
         :space-evenly false
         :spacing "10"
+        (bitbucket)
         (flameshot)
         (_volume :volume volume)
         (_backlight :brightness brightness-level)

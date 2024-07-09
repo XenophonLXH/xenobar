@@ -1,0 +1,9 @@
+(defwidget bitbucket []
+  (box
+    (button
+      :onclick `/usr/bin/firefox --new-tab https://bitbucket.org/`
+      :class "bitbucket"
+      (label :text "")
+      )
+    )
+)

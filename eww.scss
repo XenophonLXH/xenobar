@@ -13,6 +13,7 @@ $orange: #FF9500;
 $brown-envelop: #ffae52;
 $pink: #FC0FC0;
 $blue: #256EFF;
+$bitbucket: #0052CC;
 $pill: rgba(0, 0, 0, 0.5);
 
 .bar {
@@ -121,5 +122,10 @@ $pill: rgba(0, 0, 0, 0.5);
 .flameshot {
     color: purple;
     font-size: 25px;
-    margin: 0px 10px;
+    margin: 0px 5px 0px 5px;
+}
+
+.bitbucket {
+    color: $bitbucket;
+    font-size: 25px;
 }
