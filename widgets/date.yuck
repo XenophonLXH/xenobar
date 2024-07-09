@@ -8,7 +8,9 @@
       :class "timers"
       :space-evenly false
       :spacing "15"
-      (label :text "${today}")
+      (box
+        (button :onclick `/usr/bin/firefox --new-tab https://calendar.google.com`
+      (label :text "${today}")))
       (sep)
       (label :text "${time}")
       (wakatime :waka waka)
