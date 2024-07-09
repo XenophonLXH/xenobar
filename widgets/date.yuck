@@ -12,7 +12,9 @@
         (button :onclick `/usr/bin/firefox --new-tab https://calendar.google.com`
       (label :text "${today}")))
       (sep)
-      (label :text "${time}")
+      (box
+        (button :onclick `/usr/bin/firefox --new-tab https://www.timeanddate.com/worldclock/`
+      (label :text "${time}")))
       (wakatime :waka waka)
   )
 )
