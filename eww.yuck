@@ -46,83 +46,83 @@
 (defvar eww "eww -c $HOME/.config/eww")
 
 (defwidget revealer-on-hover [toggle togglename ?transition ?duration]
-	(eventbox
-		:onhover "${eww} update ${togglename}=true"
-		:onhoverlost "${eww} update ${togglename}=false"
-		(box
-			:space-evenly false
-			(children :nth 0)
-			(revealer
-				:reveal toggle
-				:transition {transition ?: "slideright"}
-				:duration {duration ?: "300ms"}
-				(children :nth 1)))))
+  (eventbox
+    :onhover "${eww} update ${togglename}=true"
+    :onhoverlost "${eww} update ${togglename}=false"
+    (box
+      :space-evenly false
+      (children :nth 0)
+      (revealer
+        :reveal toggle
+        :transition {transition ?: "slideright"}
+        :duration {duration ?: "300ms"}
+        (children :nth 1)))))
 
 (defvar volume-visible false)
 (defwidget _volume [volume]
-	(box
-		:hexpand false
-		:class {volume > 100 ? "alert" : "regular"}
-		(revealer-on-hover
-			:toggle volume-visible
-			:togglename "volume-visible"
-			(label :text {volume <= 0 ? "󰝟 " :
-				volume < 33 ? "󰕿 " :
-					volume < 66 ? "󰖀 " :
-						volume < 99 ? "󰕾 " : "󱄡 "})
-			(label :text "${volume}%"))))
+  (box
+    :hexpand false
+    :class {volume > 100 ? "alert" : "regular"}
+    (revealer-on-hover
+      :toggle volume-visible
+      :togglename "volume-visible"
+      (label :text {volume <= 0 ? "󰝟 " :
+             volume < 33 ? "󰕿 " :
+             volume < 66 ? "󰖀 " :
+             volume < 99 ? "󰕾 " : "󱄡 "})
+      (label :text "${volume}%"))))
 
 (defvar backlight-visible false)
 (defwidget _backlight [brightness]
-	(box
-		:hexpand false
-		:class "regular"
-		(revealer-on-hover
-			:toggle backlight-visible
-			:togglename "backlight-visible"
-			(label :text "󰃟 ")
-			(label :text "${brightness}%"))))
+  (box
+    :hexpand false
+    :class "regular"
+    (revealer-on-hover
+      :toggle backlight-visible
+      :togglename "backlight-visible"
+      (label :text "󰃟 ")
+      (label :text "${brightness}%"))))
 
 (defvar battery-visible false)
 (defwidget _battery [status battery]
-	(box
-		:hexpand false
-		:class {battery < 20 ? "alert" : "regular"} 
-		(revealer-on-hover
-			:toggle battery-visible
-			:togglename "battery-visible"
-			(label :text {status == 'Charging' ? "󰂄" :
-				battery < 20 ? "󰁻" :
-					battery < 40 ? "󰁽" :
-						battery < 60 ? "󰁿" :
-							battery < 80 ? "󰂁" : "󰁹"})
-			(label :text "${battery}%"))))
+  (box
+    :hexpand false
+    :class {battery < 20 ? "alert" : "regular"} 
+    (revealer-on-hover
+      :toggle battery-visible
+      :togglename "battery-visible"
+      (label :text {status == 'Charging' ? "󰂄" :
+             battery < 20 ? "󰁻" :
+             battery < 40 ? "󰁽" :
+             battery < 60 ? "󰁿" :
+             battery < 80 ? "󰂁" : "󰁹"})
+      (label :text "${battery}%"))))
 
 (defvar network-visible false)
 (defwidget _network [strength name]
-	(box
-		:hexpand false
-		:vexpand true
-		:class "regular"
-		(revealer-on-hover
-			:toggle network-visible
-			:togglename "network-visible"
-			:ransition "slidedown"
-			(label :text {strength == "" ? "󰤮 " :
-				strength < 26 ? "󰤟 " :
-					strength < 51 ? "󰤢 " :
-						strength < 76 ? "󰤥 " : "󰤨 "})
-			(label :text "${name} (${strength})"))))
+  (box
+    :hexpand false
+    :vexpand true
+    :class "regular"
+    (revealer-on-hover
+      :toggle network-visible
+      :togglename "network-visible"
+      :ransition "slidedown"
+      (label :text {strength == "" ? "󰤮 " :
+             strength < 26 ? "󰤟 " :
+             strength < 51 ? "󰤢 " :
+             strength < 76 ? "󰤥 " : "󰤨 "})
+      (label :text "${name} (${strength})"))))
 
 (defwidget buttons []
-	(box
-		:halign "end"
-		:hexpand false
-		:space-evenly true
-		:spacing "15"
-		(box (button :class "exit" :onclick `dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock` "󰍃 "))
-		(box (button :class "reboot" :onclick `/usr/bin/gnome-session-quit --reboot` " "))
-		(box (button :class "power" :onclick `/usr/bin/gnome-session-quit --power-off` " "))))
+  (box
+    :halign "end"
+    :hexpand false
+    :space-evenly true
+    :spacing "15"
+    (box (button :class "exit" :onclick `dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock` "󰍃 "))
+    (box (button :class "reboot" :onclick `/usr/bin/gnome-session-quit --reboot` " "))
+    (box (button :class "power" :onclick `/usr/bin/gnome-session-quit --power-off` " "))))
 
 
 ; ..:: CENTER ::..
@@ -141,37 +141,56 @@
 (defwidget workspaces [names current-idx]
     (box
       :halign "start"
+      :class "workspaces-ct"
       :hexpand false
       :space-evenly true
       :spacing "12"
       :css "* {margin-left: 20px; margin-right: 20px;}"
     (box
+      (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "1" ? "active-red" : "inactive"}
-        (label :text {names =~ `"1"` ? "󰚌" : "󰯈"}))
+        :onclick `/usr/bin/i3-msg workspace 1`
+        (label :text {names =~ `"1"` ? "󰚌" : "󰯈"})))
     (box
+      (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "2" ? "active-orange" : "inactive"}
-        (label :text {names =~ `"2"` ? "󰈹" : "󰈹"}))
+        :onclick `/usr/bin/i3-msg workspace 2`
+        (label :text {names =~ `"2"` ? "󰈹" : "󰈹"})))
     (box
+      (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "3" ? "active-green" : "inactive"}
-        (label :text {names =~ `"3"` ? "󰓇" : "󰓇"}))
+        :onclick `/usr/bin/i3-msg workspace 3`
+        (label :text {names =~ `"3"` ? "󰓇" : "󰓇"})))
     (box
+      (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "4" ? "active-brown" : "inactive"}
-        (label :text {names =~ `"4"` ? "󰉋" : "󰉖"}))
+        :onclick `/usr/bin/i3-msg workspace 4`
+        (label :text {names =~ `"4"` ? "󰉋" : "󰉖"})))
     (box
+      (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "5" ? "active-pink" : "inactive"}
-        (label :text {names =~ `"5"` ? "" : ""}))
+        :onclick `/usr/bin/i3-msg workspace 5`
+        (label :text {names =~ `"5"` ? "" : ""})))
     (box
+      (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "6" ? "active-blue" : "inactive"}
-        (label :text {names =~ `"6"` ? "" : ""}))
+        :onclick `/usr/bin/i3-msg workspace 6`
+        (label :text {names =~ `"6"` ? "" : ""})))
     (box
+      (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "7" ? "active-green" : "inactive"}
-        (label :text {names =~ `"7"` ? "" : ""}))
+        :onclick `/usr/bin/i3-msg workspace 7`
+        (label :text {names =~ `"7"` ? "" : ""})))
     (box
+      (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "8" ? "active-orange" : "inactive"}
-        (label :text {names =~ `"8"` ? "" : ""}))
+        :onclick `/usr/bin/i3-msg workspace 8`
+        (label :text {names =~ `"8"` ? "" : ""})))
     (box
+      (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "9" ? "active-red" : "inactive"}
-        (label :text {names =~ `"9"` ? "" : ""}))))
+        :onclick `/usr/bin/i3-msg workspace 9`
+        (label :text {names =~ `"9"` ? "" : ""})))))
 
 
 ; ..:: UTILITIES ::..

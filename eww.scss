@@ -13,19 +13,41 @@ $orange: #FF9500;
 $brown-envelop: #ffae52;
 $pink: #FC0FC0;
 $blue: #256EFF;
+$pill: rgba(0, 0, 0, 0.5);
 
 .bar {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-family: feather;
     font-family: Iosevka Nerd Font;
     border-radius: 16px;
-    background-color: $bg;
+    background: rgba(0, 0, 0, 0);
     padding: 1px;
-    margin: 1px 20px;
+    margin: 5px 20px 1px 20px;
+}
+
+.workspaces-ct {
+    background: $pill;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 16px;
 }
 
 .workspaces {
     margin: 1px;
+}
+
+.timers {
+    background: $pill;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 16px;
+}
+
+.side-stuff {
+    background: $pill;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 16px;
 }
 
 .inactive {

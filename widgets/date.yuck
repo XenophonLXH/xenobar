@@ -5,6 +5,7 @@
 (defwidget time-date []
   (box
       :halign "center"
+      :class "timers"
       :space-evenly false
       :spacing "15"
       (label :text "${today}")

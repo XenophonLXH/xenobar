@@ -1,4 +1,4 @@
-(defpoll waka :interval "300s" :initial "" "./scripts/wakatime.sh")
+(defpoll waka :interval "600s" :initial "" "./scripts/wakatime.sh")
 
 (defwidget wakatime [waka]
   (box
