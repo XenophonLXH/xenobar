@@ -152,7 +152,8 @@
       (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "1" ? "active-red" : "inactive"}
         :onclick `/usr/bin/i3-msg workspace 1`
-        (label :text {names =~ `"1"` ? "󰚌" : "󰯈"})))
+        ; (label :text {names =~ `"1"` ? "󰚌" : "󰯈"})))
+        (label :text {names =~ `"1"` ? "" : ""})))
     (box
       (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "2" ? "active-orange" : "inactive"}
@@ -172,7 +173,7 @@
       (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "5" ? "active-pink" : "inactive"}
         :onclick `/usr/bin/i3-msg workspace 5`
-        (label :text {names =~ `"5"` ? "" : ""})))
+        (label :text {names =~ `"5"` ? "󰭹" : "󰻞"})))
     (box
       (button
         :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "6" ? "active-blue" : "inactive"}
