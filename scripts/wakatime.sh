@@ -8,5 +8,5 @@
 # key, I just know my key is stored in the 
 API_KEY="$(grep -i "api_key" ~/.wakatime.cfg | cut -d '=' -f2)"
 URL="https://wakatime.com/api/v1/users/current/status_bar/today"
-TIME=$(curl -H "Authorization: Basic $API_KEY" -s $URL | python -c "import sys, json; print json.load(sys.stdin)['data']['grand_total']['text']")
+TIME=$(curl -H "Authorization: Basic $API_KEY" -s $URL | python3 -c "import sys, json; print(json.load(sys.stdin)['data']['grand_total']['text'])")
 echo "$TIME"
