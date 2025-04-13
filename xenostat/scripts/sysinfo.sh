@@ -44,23 +44,7 @@ get_mem() {
     printf "%.0f\n" $(free -m | grep Mem | awk '{print ($3/$2)*100}')
 }
 
-## Get Brightness
-get_blight() {
-    CARD=`ls /sys/class/backlight | head -n 1`
-
-    if [[ "$CARD" == *"intel_"* ]]; then
-        BNESS=`xbacklight -get`
-        LIGHT=${BNESS%.*}
-    else
-        BNESS=`blight -d $CARD get brightness`
-        PERC="$(($BNESS*100/255))"
-        LIGHT=${PERC%.*}
-    fi
-
-    echo "$LIGHT"
-}
-
-## Get Battery 
+## Get Battery
 get_battery() {
     BAT=`ls /sys/class/power_supply | grep BAT | head -n 1`
     cat /sys/class/power_supply/${BAT}/capacity

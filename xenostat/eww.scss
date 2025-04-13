@@ -1,0 +1,49 @@
+/** Global *******************************************/
+*{
+  all: unset;
+  font-family: feather;
+  font-family: Iosevka;
+}
+
+/** Generic window ***********************************/
+.genwin {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+}
+
+.sys_bar {
+  margin-top: 10px;
+}
+
+.iconcpu, .iconmem, .iconbright, .iconbat {
+  font-size : 32px;
+  font-weight : normal;
+}
+.iconcpu {
+  color: #BF616A;
+  font-size : 20px;
+  margin-right: 5px;
+}
+.iconmem {
+  color: #A3BE8C;
+}
+
+.cpu_bar, .mem_bar,  scale trough {
+  all: unset;
+  background-color: #3A404C;
+  border-radius: 16px;
+  min-height: 50px;
+  min-width: 5px;
+}
+
+.cpu_bar, .mem_bar, .bright_bar, .bat_bar, scale trough highlight {
+  all: unset;
+  border-radius: 16px;
+}
+
+.cpu_bar scale trough highlight {
+  background-color: #BF616A;
+}
+.mem_bar scale trough highlight {
+  background-color: #A3BE8C;
+}

@@ -1,0 +1,70 @@
+;; Variables
+;; System vars
+(defpoll HOST :interval "5s" `hostname`)
+(defpoll CPU_USAGE :interval "1s" `scripts/sysinfo.sh --cpu`)
+(defpoll MEM_USAGE :interval "1s" `scripts/sysinfo.sh --mem`)
+
+;; Windows
+;; xenostat
+(defwindow xenostat
+  :stacking "background"
+  :wm-ignore true
+  :focusable false
+  :screen 1
+  :windowtype "utility"
+  :geometry (geometry :x -30 :y 80 :width 50 :height 100 :anchor "top right")
+  (system))
+
+;; system
+(defwidget system []
+  (box :class "genwin" :vexpand "false" :hexpand "false"
+       (box
+         :class "sys_bar"
+         :orientation "v"
+         :spacing 1
+         :halign "center"
+         :valign "center"
+         :space-evenly "false"
+         :vexpand "false"
+         :hexpand "false"
+            (box
+              :class "cpu_bar"
+              :orientation "v"
+              :spacing 1
+              :space-evenly "false"
+              :vexpand "false"
+              :hexpand "false"
+                 (scale
+                   :min 0
+                   :max 100
+                   :value CPU_USAGE
+                   :active "false"
+                   :flipped true
+                   :orientation "v"
+                   )
+                 (label
+                   :class "iconcpu"
+                   :text ""
+                   )
+                 )
+            (box
+              :class "mem_bar"
+              :orientation "v"
+              :spacing 1
+              :space-evenly "false"
+              :vexpand "false"
+              :hexpand "false"
+                 (scale
+                   :min 0
+                   :max 100
+                   :value MEM_USAGE
+                   :active "false"
+                   :flipped true
+                   :orientation "v"
+                   )
+                 (label
+                   :class "iconmem"
+                   :text ""
+                   )
+            )
+)))
