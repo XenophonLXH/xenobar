@@ -7,11 +7,11 @@
 ;; Windows
 ;; xenostat
 (defwindow xenostat
-  :stacking "background"
+  :stacking "bg"
   :wm-ignore true
   :focusable false
   :screen 1
-  :windowtype "utility"
+  :exclusive false
   :geometry (geometry :x -30 :y 80 :width 50 :height 100 :anchor "top right")
   (system))
 
