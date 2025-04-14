@@ -1,0 +1,68 @@
+;; Variables
+
+;; Windows
+(defwindow xenoboard
+  :stacking "bg"
+  :wm-ignore true
+  :focusable false
+  :screen 1
+  :exclusive false
+  :geometry (geometry :x -50 :y -10 :width 500 :height 200 :anchor "bottom right")
+  (dashboard))
+
+;; Widgets
+(defwidget dashboard []
+  (box
+    :class "dashboard"
+    :orientation "h"
+    :spacing 10
+    :space-evenly "true"
+    :vexpand "false"
+    :hexpand "false"
+    (gmail)
+    (bitbucket)
+    (cal)
+  )
+)
+
+(defwidget gmail []
+  (box
+    :class "gmail"
+    :orientation "vertical"
+    :spacing 1
+    :space-evenly "false"
+    :vexpand "false"
+    :hexpand "false"
+    (label
+      :class "iconmail"
+      :text "")
+    )
+  )
+
+(defwidget bitbucket []
+  (box
+    :class "bitbucket"
+    :orientation "vertical"
+    :spacing 1
+    :space-evenly "false"
+    :vexpand "false"
+    :hexpand "false"
+    (label
+      :class "iconmail"
+      :text "")
+    )
+  )
+
+(defwidget cal []
+  (box
+    :class "calendar"
+    :orientation "vertical"
+    :spacing 1
+    :space-evenly "false"
+    :vexpand "false"
+    :hexpand "false"
+    (label
+      :class "iconmail"
+      :text "")
+    )
+  )
