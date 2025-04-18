@@ -18,8 +18,7 @@
 
 .dashboard {
   background-color: rgba(0, 0, 0, 0.5);
-  min-width: 1px;
-  min-height: 1px;
+  padding-left: 20px;
 }
 
 .gmail {
@@ -32,4 +31,12 @@
 
 .calendar {
   color: rgba(8, 133, 27, 0.5);
+}
+
+.scale-box {
+  all: unset;
+  background-color: #3A404C;
+  border-radius: 16px;
+  min-height: 5px;
+  min-width: 5px;
 }
