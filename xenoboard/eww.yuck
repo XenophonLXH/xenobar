@@ -1,4 +1,5 @@
 ;; Variables
+(defpoll _gmail :interval "600s" :initial "0" "../env/eww_py_env/bin/python ./scripts/python/gmail.py ../configs/.gmail_env")
 
 ;; Windows
 (defwindow xenoboard
@@ -19,13 +20,13 @@
     :space-evenly "true"
     :vexpand "false"
     :hexpand "false"
-    (gmail)
+    (gmail :email_count _gmail)
     (bitbucket)
     (cal)
   )
 )
 
-(defwidget gmail []
+(defwidget gmail [email_count]
   (box
     :class "gmail"
     :orientation "horizontal"
@@ -34,7 +35,7 @@
     :vexpand "false"
     :hexpand "false"
     (label :class "iconmail" :text "")
-    (label :class "icontext" :text "0")
+    (label :class "icontext" :text "${email_count}")
   )
 )
 
