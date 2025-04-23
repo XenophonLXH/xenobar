@@ -1,4 +1,7 @@
-# xenobar
+# Xenobar
 
-# FAQ
-1. Set up application password for GMail: https://support.google.com/accounts/answer/185833
+## The Layout
+1. Workspaces on the left
+2. Date, Time and Time spent coding in the middle
+3. Bitbucket, Lightshot, Brightness, WiFi Strength and session management on the right
+
