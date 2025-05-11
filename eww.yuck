@@ -6,10 +6,13 @@
 
 (defwindow xenobar
   :windowtype "dock"
-  :wm-ignore false
+  :monitor 0
+  :wm-ignore true
+  :exclusive true
   :geometry (geometry
               :width "99%"
-              :anchor "top center")
+              :anchor "top center"
+              :exclusive true)
   :reserve (struts :side "top" :distance "10%")
   (bar)
 )
