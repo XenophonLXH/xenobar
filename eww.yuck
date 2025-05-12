@@ -153,58 +153,64 @@
       :css "* {margin-left: 20px; margin-right: 20px;}"
     (box
       (button
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "1" ? "active-red" : "inactive"}
+        :class {current-idx == "1" ? "active-red" : "inactive"}
         :onclick `hyprctl dispatch workspace 1`
         ; (label :text {names =~ `"1"` ? "󰚌" : "󰯈"})))
         (label :text {names =~ `"1"` ? "" : ""})))
     (box
       (button
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "2" ? "active-orange" : "inactive"}
+        :class {current-idx == "2" ? "active-orange" : "inactive"}
         :onclick `hyprctl dispatch workspace 2`
         (label :text {names =~ `"2"` ? "" : ""})))
     (box
       (button
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "3" ? "active-blue" : "inactive"}
+        :class {current-idx == "3" ? "active-blue" : "inactive"}
         :onclick `hyprctl dispatch workspace 3`
         (label :text {names =~ `"3"` ? "" : ""})))
     (box
       (button
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "4" ? "active-brown" : "inactive"}
+        :class {current-idx == "4" ? "active-brown" : "inactive"}
         :onclick `hyprctl dispatch workspace 4`
         (label :text {names =~ `"4"` ? "󰭹" : "󰻞"})))
     (box
       (button
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "5" ? "active-pink" : "inactive"}
+        :class {current-idx == "5" ? "active-pink" : "inactive"}
         :onclick `hyprctl dispatch workspace 5`
         (label :text {names =~ `"5"` ? "󰉋" : "󰉖"})))
     (box
       (button
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "6" ? "active-green" : "inactive"}
+        :class {current-idx == "6" ? "active-green" : "inactive"}
         :onclick `hyprctl dispatch workspace 6`
         (label :text {names =~ `"6"` ? "󰓇" : "󰓇"})))
     (box
       (button
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "7" ? "active-blue" : "inactive"}
+        :class {current-idx == "7" ? "active-blue" : "inactive"}
         :onclick `hyprctl dispatch workspace 7`
         (label :text {names =~ `"7"` ? "" : ""})))
     (box
       (button
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "8" ? "active-orange" : "inactive"}
+        :class {current-idx == "8" ? "active-orange" : "inactive"}
         :onclick `hyprctl dispatch workspace 8`
         (label :text {names =~ `"8"` ? "󰈹" : "󰈹"})))
     (box
       (button
-        :class {replace(captures(names, "\"[0-9]\"")[captures(current-idx, "[0-9]")[0][0]][0], "\"", "") == "9" ? "active-red" : "inactive"}
-        :onclick `hyprctl dispatch workspace 0`
-        (label :text {names =~ `"9"` ? "󰈹" : "󰈹"})))))
+        :class {current-idx == "9" ? "active-red" : "inactive"}
+        :onclick `hyprctl dispatch workspace 9`
+        (label :text {names =~ `"9"` ? "󰈹" : "󰈹"})))
+    (box
+      (button
+        :class {current-idx == "10" ? "active-pink" : "inactive"}
+        :onclick `hyprctl dispatch workspace 10`
+        (label :text {names =~ `"0"` ? "󰈹" : "󰈹"})))
+))
 
 
 ; ..:: UTILITIES ::..
 
 (defwidget sep [] (box :hexpand false (label :class "sep" :text "|")))
 
-(deflisten active-workspaces :initial "_NET_DESKTOP_NAMES(UTF8_STRING) = '6'" "xprop -spy -root _NET_DESKTOP_NAMES")
-(deflisten current-workspace-index :initial "_NET_CURRENT_DESKTOP(CARDINAL) = 0" `xprop -spy -root _NET_CURRENT_DESKTOP`)
+(deflisten active-workspaces :initial "0" `./scripts/workspace-list.sh`)
+(deflisten current-workspace-index :initial "0" `./scripts/workspace-list.sh`)
 
 ; get active window name... still didn't figure it out
 ; (deflisten :initial "N/A" "")
