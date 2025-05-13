@@ -15,6 +15,8 @@ $pink: #FC0FC0;
 $blue: #256EFF;
 $bitbucket: #0052CC;
 $pill: rgba(0, 0, 0, 0.5);
+$vpn-on: green;
+$vpn-off: red;
 
 .bar {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -128,4 +130,16 @@ $pill: rgba(0, 0, 0, 0.5);
 .bitbucket {
     color: $bitbucket;
     font-size: 25px;
+}
+
+.vpn-on {
+  font-size: 25px;
+  color: $vpn-on;
+  margin: 1px 1px 1px 5px;
+}
+
+.vpn-off {
+  font-size: 25px;
+  color: $vpn-off;
+  margin: 1px 1px 1px 5px;
 }

@@ -1,0 +1,11 @@
+(defwidget vpn [ state ]
+  (box
+    (button
+      :onclick `$HOME/.config/eww/scripts/vpn-toggle.sh Office`
+      :class { state == '0' ? "vpn-off" : "vpn-on" }
+      (label
+        :text { state == '0' ? "" : "" }
+      )
+    )
+  )
+)

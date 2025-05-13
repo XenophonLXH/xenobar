@@ -3,6 +3,7 @@
 (include "./widgets/bitbucket.yuck")
 (include "./widgets/flameshot.yuck")
 (include "./widgets/date.yuck")
+(include "./widgets/vpn.yuck")
 
 (defwindow xenobar
   :windowtype "dock"
@@ -38,6 +39,7 @@
         :space-evenly false
         :spacing "10"
         (bitbucket)
+        (vpn :state office-vpn-state)
         (flameshot)
         (_volume :volume volume)
         (_backlight :brightness brightness-level)
@@ -104,6 +106,7 @@
       (label :text "${battery}%"))))
 
 (defvar network-visible false)
+
 (defwidget _network [strength name]
   (box
     :hexpand false
@@ -210,6 +213,7 @@
 (defwidget sep [] (box :hexpand false (label :class "sep" :text "|")))
 
 (deflisten active-workspaces :initial "0" `./scripts/workspace-list.sh`)
+(deflisten office-vpn-state :initial "0" `$HOME/.config/eww/scripts/vpn-check.sh Office`)
 (deflisten current-workspace-index :initial "0" `./scripts/workspace-list.sh`)
 
 ; get active window name... still didn't figure it out
