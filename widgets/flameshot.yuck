@@ -1,7 +1,7 @@
 (defwidget flameshot []
   (box
     (button
-      :onclick `flameshot gui`
+      :onclick `XDG_CURRENT_DESKTOP=Sway flameshot gui`
       :class "flameshot"
       (label :text "󰈸")
     )
