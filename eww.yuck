@@ -4,6 +4,7 @@
 (include "./widgets/flameshot.yuck")
 (include "./widgets/date.yuck")
 (include "./widgets/vpn.yuck")
+(include "./widgets/vpn-aws.yuck")
 
 (defwindow xenobar
   :windowtype "dock"
@@ -40,6 +41,7 @@
         :spacing "10"
         (bitbucket)
         (vpn :state office-vpn-state)
+        (vpn-aws :state aws-vpn-state)
         (flameshot)
         (_volume :volume volume)
         (_backlight :brightness brightness-level)
@@ -214,6 +216,7 @@
 
 (deflisten active-workspaces :initial "0" `./scripts/workspace-list.sh`)
 (deflisten office-vpn-state :initial "0" `$HOME/.config/eww/scripts/vpn-check.sh Office`)
+(deflisten aws-vpn-state :initial "0" `$HOME/.config/eww/scripts/vpn-check.sh AWS`)
 (deflisten current-workspace-index :initial "0" `./scripts/workspace-list.sh`)
 
 ; get active window name... still didn't figure it out
