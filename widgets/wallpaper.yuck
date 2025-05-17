@@ -1,0 +1,9 @@
+(defwidget wallpaper []
+  (box
+      :halign "center"
+      :class "wallpaper"
+      (box
+        (button :onclick `$HOME/.config/eww/scripts/swww-wallpaper.sh`
+      (label :text "")))
+  )
+)

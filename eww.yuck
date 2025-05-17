@@ -5,6 +5,7 @@
 (include "./widgets/date.yuck")
 (include "./widgets/vpn.yuck")
 (include "./widgets/vpn-aws.yuck")
+(include "./widgets/wallpaper.yuck")
 
 (defwindow xenobar
   :windowtype "dock"
@@ -39,6 +40,7 @@
     (box
         :space-evenly false
         :spacing "10"
+        (wallpaper)
         (bitbucket)
         (vpn :state office-vpn-state)
         (vpn-aws :state aws-vpn-state)
