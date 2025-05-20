@@ -1,7 +1,7 @@
 (defwidget flameshot []
   (box
     (button
-      :onclick `XDG_CURRENT_DESKTOP=Sway flameshot gui`
+      :onclick `grim -g "$(slurp)" - | swappy -f -`
       :class "flameshot"
       (label :text "󰈸")
     )
